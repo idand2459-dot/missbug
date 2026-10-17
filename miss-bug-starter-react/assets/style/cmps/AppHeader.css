@@ -1,0 +1,35 @@
+.app-header {
+    padding-block: 1em;
+    background-color: var(--gray1);
+    color: whitesmoke;
+}
+
+.app-header > * {
+    align-items: center;
+    grid-row: 1;
+}
+
+.app-header h1 {
+    margin: 0;
+    justify-self: start;
+}
+
+.app-header nav {
+    display: flex;
+    gap: 1em;
+    justify-self: end;
+}
+
+.app-header nav a {
+    border-block-end: 1px solid transparent;
+    text-decoration: none;
+}
+
+.app-header nav a:hover {
+    text-decoration: overline;
+}
+
+.app-header nav a.active {
+    color: var(--color3);
+    border-block-end: 1px solid var(--color3);
+}

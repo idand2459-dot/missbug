@@ -1,0 +1,7 @@
+footer {
+    margin: 1em 0 0;
+    padding: 1em;
+    text-align: center;
+    background-color: var(--gray1);
+    color: whitesmoke;
+}

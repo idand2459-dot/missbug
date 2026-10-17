@@ -1,0 +1,28 @@
+.user-msg {
+    position: fixed;
+    top: 13px;
+    right: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 10px;
+    border-radius: .5em;
+    
+    font-size: .9em;
+    background-color: #111;
+    color: white;
+}
+
+.user-msg button {
+    border-radius: 50%;
+    line-height: 1.1;
+}
+
+.success {
+    background-color: var(--success);
+}
+
+.danger {
+    background-color: var(--danger);
+}

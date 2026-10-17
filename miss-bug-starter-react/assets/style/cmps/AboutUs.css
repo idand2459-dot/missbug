@@ -1,0 +1,8 @@
+.about-us h2 {
+    margin-block: 50px 1em;
+}
+
+.about-us img {
+    max-width: 50vw;
+    margin: auto;
+}

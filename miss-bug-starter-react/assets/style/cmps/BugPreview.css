@@ -1,0 +1,15 @@
+.bug-preview {
+    display: flex;
+    flex-direction: column;
+    gap: .6em;
+}
+
+.bug-preview .title {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.bug-preview span {
+    margin-inline-start: .5em;
+    font-size: .9em;
+}
