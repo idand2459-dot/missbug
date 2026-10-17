@@ -1,9 +1,4 @@
-import { utilService } from './util.service.js'
-import { storageService } from './async-storage.service.js'
-
-const STORAGE_KEY = 'bugs'
-
-_createBugs()
+const BASE_URL = '/api/bug/'
 
 export const bugService = {
     query,
@@ -13,9 +8,10 @@ export const bugService = {
     getDefaultFilter
 }
 
-function query(filterBy) {
-    return storageService.query(STORAGE_KEY)
-    .then(bugs => {
+async function query(filterBy={}) {
+   const response = await fetch(BASE_URL)
+   if (!response.ok) throw new Error('Failed to fetch bugs')
+   let bugs = await response.json()
 
         if (filterBy.txt) {
             const regExp = new RegExp(filterBy.txt, 'i')
@@ -27,53 +23,30 @@ function query(filterBy) {
         }
 
         return bugs
-    })
 }
 
-function getById(bugId) {
-    return storageService.get(STORAGE_KEY, bugId)
+async function getById(bugId) {
+    const response = await fetch(BASE_URL+bugId)
+    if (!response.ok) throw new Error('Failed to fetch bug')
+    const bug = await response.json()
+    return bug
 }
 
-function remove(bugId) {
-    return storageService.remove(STORAGE_KEY, bugId)
+async function remove(bugId) {
+    const response = await fetch(BASE_URL+bugId+'/remove')
+    if (!response.ok) throw new Error('Failed to remove bug')
+    const removedBug = await response.json()
+    return removedBug
 }
 
-function save(bug) {
-    if (bug._id) {
-        return storageService.put(STORAGE_KEY, bug)
-    } else {
-        return storageService.post(STORAGE_KEY, bug)
-    }
+async function save(bug) {
+    const queryString = new URLSearchParams(bug).toString()
+    const response = await fetch(BASE_URL+'save?'+queryString)
+    if (!response.ok) throw new Error('Failed to save bug')
+    const savedBug = await response.json()
+    return savedBug
 }
 
-function _createBugs() {
-    let bugs = utilService.loadFromStorage(STORAGE_KEY)
-    if (bugs && bugs.length > 0) return 
-
-    bugs = [
-        {
-            title: "Infinite Loop Detected",
-            severity: 4,
-            _id: "1NF1N1T3"
-        },
-        {
-            title: "Keyboard Not Found",
-            severity: 3,
-            _id: "K3YB0RD"
-        },
-        {
-            title: "404 Coffee Not Found",
-            severity: 2,
-            _id: "C0FF33"
-        },
-        {
-            title: "Unexpected Response",
-            severity: 1,
-            _id: "G0053"
-        }
-    ]
-    utilService.saveToStorage(STORAGE_KEY, bugs)
-}
 
 function getDefaultFilter() {
     return { txt: '', minSeverity: 0 }
