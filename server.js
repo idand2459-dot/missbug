@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 const app = express();
 app.use(express.static('miss-bug-starter-react'))
 app.use(cookieParser());
+app.use(express.json());
 
 app.get('/',(req,res)=>{
     res.send('Hello there')
@@ -19,15 +20,28 @@ app.get('/api/bug', async (req, res) => {
     }
 });
 
-app.get('/api/bug/save', async (req, res) => {
+app.post('/api/bug', async (req, res) => {
    try{
-    const bug=req.query;
+    const bug=req.body;
     bug.severity = Number(bug.severity);
     const savedBug = await bugService.save(bug);
     res.send(savedBug);
    } catch (err) {
        res.status(500).send('Failed to save bug');
    }
+});
+
+app.put('/api/bug/:bugId', async (req, res) => {
+    try{
+        const bugId=req.params.bugId;
+        const bug=req.body;
+        bug.severity=Number(bug.severity);
+        bug._id=bugId;
+        const savedBug = await bugService.save(bug);
+        res.send(savedBug);
+    } catch (err) {
+        res.status(500).send('Failed to update bug');
+    }
 });
 
 app.get('/api/bug/:bugId', async (req, res) => {

@@ -9,9 +9,8 @@ export const bugService = {
 }
 
 async function query(filterBy={}) {
-   const response = await fetch(BASE_URL)
-   if (!response.ok) throw new Error('Failed to fetch bugs')
-   let bugs = await response.json()
+   const response = await axios.get(BASE_URL)
+   let bugs = response.data
 
         if (filterBy.txt) {
             const regExp = new RegExp(filterBy.txt, 'i')
@@ -26,24 +25,22 @@ async function query(filterBy={}) {
 }
 
 async function getById(bugId) {
-    const response = await fetch(BASE_URL+bugId)
-    if (!response.ok) throw new Error('Failed to fetch bug')
-    const bug = await response.json()
+    const response = await axios.get(BASE_URL+bugId)
+    const bug = response.data
     return bug
 }
 
 async function remove(bugId) {
-    const response = await fetch(BASE_URL+bugId+'/remove')
-    if (!response.ok) throw new Error('Failed to remove bug')
-    const removedBug = await response.json()
+    const response = await axios.delete(BASE_URL+bugId)
+    const removedBug = response.data    
     return removedBug
 }
 
 async function save(bug) {
-    const queryString = new URLSearchParams(bug).toString()
-    const response = await fetch(BASE_URL+'save?'+queryString)
-    if (!response.ok) throw new Error('Failed to save bug')
-    const savedBug = await response.json()
+    const response = bug._id
+        ? await axios.put(BASE_URL+bug._id, bug)
+        : await axios.post(BASE_URL, bug)
+    const savedBug = response.data
     return savedBug
 }
 
