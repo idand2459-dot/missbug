@@ -23,3 +23,11 @@
     height: auto;
     filter: drop-shadow(0 12px 20px rgba(20, 24, 45, .15));
 }
+
+.home-page img {
+    transition: transform .3s ease;
+}
+
+.home-page img:hover {
+    transform: translateY(-4px) rotate(-2deg);
+}

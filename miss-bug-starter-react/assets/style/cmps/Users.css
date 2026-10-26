@@ -83,3 +83,22 @@
     padding-block: .2rem;
     color: var(--text-muted);
 }
+
+.user-index li {
+    transition: border-color .15s, box-shadow .15s;
+}
+
+.user-index li:hover {
+    border-color: #cfd3e6;
+    box-shadow: var(--shadow);
+}
+
+.user-index .btn-danger:disabled {
+    background-color: var(--bg-muted);
+    border-color: var(--border);
+    color: var(--text-muted);
+}
+
+.profile-bugs li:hover {
+    color: var(--accent);
+}

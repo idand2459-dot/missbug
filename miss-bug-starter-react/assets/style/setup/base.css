@@ -135,3 +135,32 @@ input:focus-visible, select:focus-visible {
         scroll-behavior: auto !important;
     }
 }
+
+/* ---------- Polish ---------- */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes fade-up {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: none; }
+    }
+
+    .app-wrapper main > * {
+        animation: fade-up .35s ease-out both;
+    }
+
+    button:not(:disabled):hover {
+        box-shadow: var(--shadow-sm);
+    }
+}
+
+::selection {
+    background: var(--accent-soft);
+    color: var(--accent-hover);
+}
+
+input:hover:not(:focus-visible), select:hover:not(:focus-visible) {
+    border-color: #c8cde0;
+}
+
+select {
+    cursor: pointer;
+}

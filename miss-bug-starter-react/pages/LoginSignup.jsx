@@ -1,4 +1,5 @@
 const { useState } = React
+const { useNavigate } = ReactRouterDOM
 
 import { userService } from '../services/user.service.js'
 
@@ -7,8 +8,11 @@ export function LoginSignup({ onLogin }) {
     const [password, setPassword] = useState('')
     const [isSignup, setIsSignup] = useState(false)
     const [fullName, setFullName] = useState('')
+    const [error, setError] = useState('')
+    const navigate = useNavigate()
 
     async function handleLogin() {
+        setError('')
         try {
             const user = await userService.login({
                 username,
@@ -17,12 +21,15 @@ export function LoginSignup({ onLogin }) {
 
             onLogin(user)
             console.log('Logged in user:', user)
+            navigate('/')
         } catch (err) {
             console.error(err)
+            setError(getErrorMsg(err))
         }
     }
 
     async function handleSignup() {
+        setError('')
         try {
             const user = await userService.signup({
                 username,
@@ -32,9 +39,17 @@ export function LoginSignup({ onLogin }) {
 
             onLogin(user)
             console.log('Signed up user:', user)
+            navigate('/')
         } catch (err) {
             console.error(err)
+            setError(getErrorMsg(err))
         }
+    }
+
+    function getErrorMsg(err) {
+        const msg = err && err.message
+        if (!msg || msg === 'Failed to fetch') return 'Something went wrong. Please try again.'
+        return msg
     }
 
     return (
@@ -77,11 +92,13 @@ export function LoginSignup({ onLogin }) {
                     </div>
                 )}
 
+                {error && <p className="auth-error" role="alert">{error}</p>}
+
                 <button className="btn-primary" onClick={isSignup ? handleSignup : handleLogin}>
                     {isSignup ? 'Signup' : 'Login'}
                 </button>
 
-                <button className="btn-secondary" onClick={() => setIsSignup(!isSignup)}>
+                <button className="btn-secondary" onClick={() => { setIsSignup(!isSignup); setError('') }}>
                     {isSignup ? 'Switch to Login' : 'Switch to Signup'}
                 </button>
             </div>

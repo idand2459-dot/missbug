@@ -19,5 +19,33 @@
     "password": "tom123",
     "fullname": "Tom Demo",
     "isAdmin": false
+  },
+  {
+    "_id": "u103",
+    "username": "noa",
+    "password": "noa123",
+    "fullname": "Noa Demo",
+    "isAdmin": false
+  },
+  {
+    "_id": "u104",
+    "username": "daniel",
+    "password": "daniel123",
+    "fullname": "Daniel Demo",
+    "isAdmin": false
+  },
+  {
+    "_id": "u105",
+    "username": "lior",
+    "password": "lior123",
+    "fullname": "Lior Demo",
+    "isAdmin": false
+  },
+  {
+    "_id": "u106",
+    "username": "dana",
+    "password": "dana123",
+    "fullname": "Dana Demo",
+    "isAdmin": false
   }
 ]

@@ -67,3 +67,11 @@
 .bug-details > a:hover {
     text-decoration: underline;
 }
+
+.bug-details > a::before {
+    content: "\2190\00a0";
+}
+
+.bug-details h4 {
+    margin-block-end: var(--space-2);
+}

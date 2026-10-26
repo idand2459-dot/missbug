@@ -11,8 +11,8 @@ function login(credentials) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials)
     })
-    .then(res => {
-        if (!res.ok) throw new Error('Login failed')
+    .then(async res => {
+        if (!res.ok) throw new Error(await res.text() || 'Login failed')
         return res.json()
     })
     .then(user => {
@@ -27,8 +27,8 @@ function signup(credentials) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials)
     })
-    .then(res => {
-        if (!res.ok) throw new Error('Signup failed')
+    .then(async res => {
+        if (!res.ok) throw new Error(await res.text() || 'Signup failed')
         return res.json()
     })
     .then(() => {

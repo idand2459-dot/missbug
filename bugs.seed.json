@@ -114,5 +114,183 @@
       "_id": "u100",
       "fullname": "Demo Admin"
     }
+  },
+  {
+    "_id": "b1009",
+    "title": "Image upload hangs",
+    "description": "Uploading a large image freezes the form with no error.",
+    "severity": 4,
+    "labels": [
+      "upload",
+      "ui"
+    ],
+    "createdAt": 1736845200000,
+    "creator": {
+      "_id": "u103",
+      "fullname": "Noa Demo"
+    }
+  },
+  {
+    "_id": "b1010",
+    "title": "Dark text on dark background",
+    "description": "Footer text is unreadable in some themes.",
+    "severity": 2,
+    "labels": [
+      "ui",
+      "css"
+    ],
+    "createdAt": 1736931600000,
+    "creator": {
+      "_id": "u104",
+      "fullname": "Daniel Demo"
+    }
+  },
+  {
+    "_id": "b1011",
+    "title": "Search is case sensitive",
+    "description": "Searching for \"login\" does not find \"Login\".",
+    "severity": 3,
+    "labels": [
+      "search"
+    ],
+    "createdAt": 1737018000000,
+    "creator": {
+      "_id": "u105",
+      "fullname": "Lior Demo"
+    }
+  },
+  {
+    "_id": "b1012",
+    "title": "Server crashes on empty form",
+    "description": "Submitting an empty form returns a 500 error.",
+    "severity": 5,
+    "labels": [
+      "server",
+      "critical"
+    ],
+    "createdAt": 1737104400000,
+    "creator": {
+      "_id": "u106",
+      "fullname": "Dana Demo"
+    }
+  },
+  {
+    "_id": "b1013",
+    "title": "Email validation too strict",
+    "description": "Valid addresses with a plus sign are rejected.",
+    "severity": 3,
+    "labels": [
+      "validation",
+      "auth"
+    ],
+    "createdAt": 1737190800000,
+    "creator": {
+      "_id": "u103",
+      "fullname": "Noa Demo"
+    }
+  },
+  {
+    "_id": "b1014",
+    "title": "Pagination skips a page",
+    "description": "Clicking Next twice jumps from page 1 to page 3.",
+    "severity": 4,
+    "labels": [
+      "pagination",
+      "ui"
+    ],
+    "createdAt": 1737277200000,
+    "creator": {
+      "_id": "u104",
+      "fullname": "Daniel Demo"
+    }
+  },
+  {
+    "_id": "b1015",
+    "title": "Tooltip overlaps button",
+    "description": "On small screens the tooltip covers the Save button.",
+    "severity": 1,
+    "labels": [
+      "ui",
+      "mobile"
+    ],
+    "createdAt": 1737363600000,
+    "creator": {
+      "_id": "u105",
+      "fullname": "Lior Demo"
+    }
+  },
+  {
+    "_id": "b1016",
+    "title": "Session expires too early",
+    "description": "Users are logged out after a few minutes of inactivity.",
+    "severity": 3,
+    "labels": [
+      "auth",
+      "session"
+    ],
+    "createdAt": 1737450000000,
+    "creator": {
+      "_id": "u106",
+      "fullname": "Dana Demo"
+    }
+  },
+  {
+    "_id": "b1017",
+    "title": "Duplicate bug entries",
+    "description": "Creating a bug twice quickly adds two identical rows.",
+    "severity": 2,
+    "labels": [
+      "data"
+    ],
+    "createdAt": 1737536400000,
+    "creator": {
+      "_id": "u101",
+      "fullname": "Maya Demo"
+    }
+  },
+  {
+    "_id": "b1018",
+    "title": "Wrong date format",
+    "description": "Created date shows the US format instead of the local one.",
+    "severity": 1,
+    "labels": [
+      "i18n",
+      "content"
+    ],
+    "createdAt": 1737622800000,
+    "creator": {
+      "_id": "u102",
+      "fullname": "Tom Demo"
+    }
+  },
+  {
+    "_id": "b1019",
+    "title": "Export button missing",
+    "description": "The export to CSV button is missing for admins.",
+    "severity": 2,
+    "labels": [
+      "feature",
+      "admin"
+    ],
+    "createdAt": 1737709200000,
+    "creator": {
+      "_id": "u100",
+      "fullname": "Demo Admin"
+    }
+  },
+  {
+    "_id": "b1020",
+    "title": "Memory leak in list",
+    "description": "Scrolling the bug list for a long time slows the browser.",
+    "severity": 5,
+    "labels": [
+      "performance",
+      "critical"
+    ],
+    "createdAt": 1737795600000,
+    "creator": {
+      "_id": "u103",
+      "fullname": "Noa Demo"
+    }
   }
 ]

@@ -92,3 +92,23 @@
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+/* Severity accent bar on each card (driven by the severity pill inside it) */
+.bug-list li {
+    border-inline-start: 4px solid var(--border);
+}
+
+.bug-list li:has([data-severity="1"]) { border-inline-start-color: var(--sev-1); }
+.bug-list li:has([data-severity="2"]) { border-inline-start-color: var(--sev-2); }
+.bug-list li:has([data-severity="3"]) { border-inline-start-color: var(--sev-3); }
+.bug-list li:has([data-severity="4"]) { border-inline-start-color: var(--sev-4); }
+.bug-list li:has([data-severity="5"]) { border-inline-start-color: var(--sev-5); }
+
+.bug-list .actions button:first-child:last-child {
+    width: 100%;
+}
+
+.pagination span {
+    min-width: 5.5em;
+    text-align: center;
+}
