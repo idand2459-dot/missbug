@@ -1,16 +1,60 @@
 :root {
-    --bg1: darkcyan;
-    --bg2: rgb(50, 165, 204);
-    --bg3: darkmagenta;
-    
-    --color1: aliceblue;
-    --color2: lightblue;
-    --color3: gold;
-    --color4: goldenrod;
-    
-    --gray1: #444;
-    --gray2: lightgray;
-    
-    --success: green;
-    --danger: orangered;
+    /* Brand / surfaces */
+    --accent: #4f46e5;
+    --accent-hover: #4338ca;
+    --accent-soft: #eef2ff;
+    --bg-page: #f6f7fb;
+    --bg-surface: #ffffff;
+    --bg-muted: #f1f3f9;
+    --border: #e3e6ef;
+
+    /* Text */
+    --text: #1b2033;
+    --text-muted: #5f667d;
+    --text-on-accent: #ffffff;
+
+    /* Status */
+    --success: #15803d;
+    --danger: #dc2626;
+    --danger-hover: #b91c1c;
+
+    /* Severity scale (1 = low ... 5 = critical) */
+    --sev-1: #15803d;
+    --sev-2: #4d7c0f;
+    --sev-3: #b45309;
+    --sev-4: #c2410c;
+    --sev-5: #b91c1c;
+    --sev-1-bg: #dcfce7;
+    --sev-2-bg: #ecfccb;
+    --sev-3-bg: #fef3c7;
+    --sev-4-bg: #ffedd5;
+    --sev-5-bg: #fee2e2;
+
+    /* Legacy names kept so older rules keep working */
+    --bg1: var(--bg-surface);
+    --bg2: var(--accent);
+    --bg3: var(--accent-hover);
+    --color1: var(--text);
+    --color2: var(--accent);
+    --color3: var(--accent);
+    --color4: var(--accent-hover);
+    --gray1: #1b2033;
+    --gray2: var(--bg-muted);
+
+    /* Shape & rhythm */
+    --radius-sm: 8px;
+    --radius: 12px;
+    --radius-lg: 16px;
+    --shadow-sm: 0 1px 2px rgba(20, 24, 45, .06);
+    --shadow: 0 4px 14px rgba(20, 24, 45, .08);
+    --shadow-lg: 0 12px 32px rgba(20, 24, 45, .12);
+    --space-1: .25rem;
+    --space-2: .5rem;
+    --space-3: .75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2.5rem;
+    --page-width: 1040px;
+
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }

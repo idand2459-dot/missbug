@@ -15,3 +15,6 @@
 @import './cmps/BugList.css';
 @import './cmps/BugFilter.css';
 @import './cmps/BugPreview.css';
+
+@import './cmps/Auth.css';
+@import './cmps/Users.css';

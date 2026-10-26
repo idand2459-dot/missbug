@@ -1,8 +1,24 @@
+.bug-index {
+    --max-width: var(--page-width);
+}
+
 .bug-index header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--space-3);
 
-    padding-block: 1em;
-    border-block-end: 1px solid lightgray;
+    padding-block: var(--space-5) var(--space-4);
+}
+
+.bug-index header h3 {
+    font-size: 1.4rem;
+}
+
+.bug-index header button {
+    background-color: var(--accent);
+}
+
+.bug-index header button:hover {
+    background-color: var(--accent-hover);
 }

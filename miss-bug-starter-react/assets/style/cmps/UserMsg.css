@@ -1,22 +1,33 @@
 .user-msg {
     position: fixed;
-    top: 13px;
-    right: 10px;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    max-width: calc(100vw - 32px);
 
     display: flex;
     align-items: center;
-    gap: 1em;
-    padding: 10px;
-    border-radius: .5em;
-    
-    font-size: .9em;
-    background-color: #111;
+    gap: var(--space-3);
+    padding: .65rem .9rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+
+    font-size: .92rem;
+    font-weight: 600;
+    background-color: var(--text);
     color: white;
 }
 
 .user-msg button {
+    min-height: 26px;
     border-radius: 50%;
+    padding: .1rem .5rem;
+    background-color: rgba(255, 255, 255, .2);
     line-height: 1.1;
+}
+
+.user-msg button:hover {
+    background-color: rgba(255, 255, 255, .35);
 }
 
 .success {

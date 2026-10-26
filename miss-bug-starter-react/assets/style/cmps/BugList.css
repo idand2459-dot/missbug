@@ -1,7 +1,7 @@
 .bug-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-4);
 
     padding: 0;
     list-style: none;
@@ -10,20 +10,85 @@
 .bug-list li {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    justify-content: space-between;
+    gap: var(--space-4);
 
-    padding: .7em;
-    background-color: var(--bg1);
-    border-radius: .2em;
+    padding: var(--space-4);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
 
-    color: whitesmoke;
+    color: var(--text);
+    transition: box-shadow .2s, transform .2s, border-color .2s;
+}
+
+.bug-list li:hover {
+    border-color: #cfd3e6;
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
 }
 
 .bug-list .actions {
     display: flex;
-    gap: .3em;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding-block-start: var(--space-3);
+    border-block-start: 1px solid var(--border);
 }
 
-.bug-list .actions button:last-child {
+.bug-list .actions button {
+    min-height: 34px;
+    background-color: var(--bg-surface);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.bug-list .actions button:hover {
+    background-color: var(--bg-muted);
+    color: var(--text);
+}
+
+.bug-list .actions button a {
+    display: block;
+}
+
+.bug-list .actions button:last-child:not(:first-child) {
     margin-inline-start: auto;
+    color: var(--danger);
+    border-color: #f5c2c2;
+}
+
+.bug-list .actions button:last-child:not(:first-child):hover {
+    background-color: var(--danger);
+    border-color: var(--danger);
+    color: #fff;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-block-start: var(--space-5);
+    color: var(--text-muted);
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.pagination button {
+    background-color: var(--bg-surface);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: var(--bg-muted);
+    color: var(--text);
+}
+
+@media (max-width: 420px) {
+    .bug-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }

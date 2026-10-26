@@ -12,7 +12,7 @@ export function AppHeader({ loggedinUser, onLogout }) {
                 <NavLink to="/about">About</NavLink>
 
                 {loggedinUser ? (
-                    <span>
+                    <span className="user-nav">
                         Welcome, {loggedinUser.username}
 
                         <NavLink to="/user">

@@ -1,0 +1,85 @@
+/* ---------- Admin: Manage Users ---------- */
+.user-index h1 {
+    margin-block-end: var(--space-4);
+    font-size: 1.6rem;
+}
+
+.user-index .user-error {
+    margin-block-end: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid #f5c2c2;
+    border-radius: var(--radius-sm);
+    background-color: var(--sev-5-bg);
+    color: var(--danger-hover);
+}
+
+.user-index ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.user-index li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--bg-surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.user-index .user-info {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Profile ---------- */
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 720px;
+    margin-inline: auto;
+}
+
+.user-profile > h2 {
+    margin-block-end: var(--space-2);
+    font-size: 1.6rem;
+}
+
+.user-profile > p {
+    color: var(--text-muted);
+    overflow-wrap: anywhere;
+}
+
+.user-profile section {
+    margin-block-start: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background-color: var(--bg-surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.user-profile section h2 {
+    margin-block-end: var(--space-3);
+    font-size: 1.1rem;
+}
+
+.profile-bugs li {
+    padding-block: .45rem;
+    border-block-end: 1px solid var(--border);
+    overflow-wrap: anywhere;
+}
+
+.profile-bugs li:last-child {
+    border-block-end: 0;
+}
+
+.profile-stats p {
+    padding-block: .2rem;
+    color: var(--text-muted);
+}

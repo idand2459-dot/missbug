@@ -1,7 +1,14 @@
 .app-header {
-    padding-block: 1em;
-    background-color: var(--gray1);
-    color: whitesmoke;
+    --max-width: calc(var(--page-width) + 2rem);
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding-block: .75rem;
+    background-color: rgba(255, 255, 255, .92);
+    backdrop-filter: saturate(160%) blur(8px);
+    border-block-end: 1px solid var(--border);
+    color: var(--text);
 }
 
 .app-header > * {
@@ -12,24 +19,94 @@
 .app-header h1 {
     margin: 0;
     justify-self: start;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -.02em;
+}
+
+.app-header h1::before {
+    content: "";
+    display: inline-block;
+    width: .6em;
+    height: .6em;
+    margin-inline-end: .45em;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
 .app-header nav {
     display: flex;
-    gap: 1em;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .25rem;
     justify-self: end;
 }
 
 .app-header nav a {
-    border-block-end: 1px solid transparent;
+    padding: .4rem .75rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-size: .95rem;
+    font-weight: 600;
     text-decoration: none;
+    transition: background-color .15s, color .15s;
 }
 
 .app-header nav a:hover {
-    text-decoration: overline;
+    background-color: var(--bg-muted);
+    color: var(--text);
+    text-decoration: none;
 }
 
 .app-header nav a.active {
-    color: var(--color3);
-    border-block-end: 1px solid var(--color3);
+    background-color: var(--accent-soft);
+    color: var(--accent);
+}
+
+.app-header .user-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .25rem;
+    margin-inline-start: .5rem;
+    padding-inline-start: .75rem;
+    border-inline-start: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: .9rem;
+}
+
+.app-header .user-nav button {
+    min-height: 34px;
+    margin-inline-start: .25rem;
+    background-color: var(--bg-surface);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.app-header .user-nav button:hover {
+    background-color: var(--bg-muted);
+    color: var(--text);
+}
+
+@media (max-width: 720px) {
+    .app-header {
+        position: static;
+    }
+
+    .app-header > * {
+        grid-row: auto;
+        justify-self: start;
+    }
+
+    .app-header nav {
+        justify-self: start;
+        margin-block-start: .5rem;
+    }
+
+    .app-header .user-nav {
+        margin-inline-start: 0;
+        padding-inline-start: 0;
+        border-inline-start: 0;
+    }
 }

@@ -39,14 +39,14 @@ export function UserDetails({ loggedinUser }) {
     : 0
 
     return (
-        <section>
+        <section className="user-profile">
             <h2>My Profile</h2>
             <p>User ID: {loggedinUser._id}</p>
             <p>Username: {loggedinUser.username}</p>
             <p>Full Name: {loggedinUser.fullname}</p>
             <p>Admin: {loggedinUser.isAdmin ? 'Yes' : 'No'}</p>
 
-            <section>
+            <section className="profile-bugs">
                 <h2>My Bugs</h2>
                 <ul>
                     {myBugs.map(bug => (
@@ -54,7 +54,7 @@ export function UserDetails({ loggedinUser }) {
                     ))}
                 </ul>
             </section>
-            <section>
+            <section className="profile-stats">
                 <h2>Bug Statistics</h2>
                 <p>Total Bugs: {totalBugs}</p>
                 <p>Critical Bugs: {criticalBugs}</p>

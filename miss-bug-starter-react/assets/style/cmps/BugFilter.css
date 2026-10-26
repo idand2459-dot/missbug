@@ -1,13 +1,60 @@
 .bug-filter {
-    background-color: var(--gray2);
-    padding: 1em;
+    padding: var(--space-4) var(--space-5) var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--bg-surface);
+    box-shadow: var(--shadow-sm);
 }
 
 .bug-filter h2 {
-    margin-bottom: .5em;
+    margin-bottom: var(--space-3);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.bug-filter form {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-3);
 }
 
 .bug-filter label {
-    margin-inline-start: 1em;
+    margin: 0;
+    white-space: nowrap;
 }
 
+.bug-filter button {
+    grid-column: 3 / -1;
+    justify-self: start;
+    background-color: var(--accent);
+}
+
+.bug-filter button:hover {
+    background-color: var(--accent-hover);
+}
+
+@media (max-width: 720px) {
+    .bug-filter form {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .bug-filter button {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .bug-filter form {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-1);
+    }
+
+    .bug-filter label:not(:first-of-type) {
+        margin-block-start: var(--space-2);
+    }
+}

@@ -38,13 +38,14 @@ export function LoginSignup({ onLogin }) {
     }
 
     return (
-        <div>
+        <div className="auth-page">
             <h1>Login / Signup</h1>
 
-            <div>
+            <div className="auth-card">
                 <input
                     type="text"
                     placeholder="Username"
+                    aria-label="Username"
                     value={username}
                     onChange={e => setUsername(e.target.value)}
                 />
@@ -52,6 +53,7 @@ export function LoginSignup({ onLogin }) {
                 <input
                     type="password"
                     placeholder="Password"
+                    aria-label="Password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 />
@@ -60,16 +62,17 @@ export function LoginSignup({ onLogin }) {
                     <input
                         type="text"
                         placeholder="Full Name"
+                        aria-label="Full Name"
                         value={fullName}
                         onChange={e => setFullName(e.target.value)}
                     />
                 )}
 
-                <button onClick={isSignup ? handleSignup : handleLogin}>
+                <button className="btn-primary" onClick={isSignup ? handleSignup : handleLogin}>
                     {isSignup ? 'Signup' : 'Login'}
                 </button>
 
-                <button onClick={() => setIsSignup(!isSignup)}>
+                <button className="btn-secondary" onClick={() => setIsSignup(!isSignup)}>
                     {isSignup ? 'Switch to Login' : 'Switch to Signup'}
                 </button>
             </div>

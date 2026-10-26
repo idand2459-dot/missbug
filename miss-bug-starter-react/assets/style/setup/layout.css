@@ -1,10 +1,10 @@
 .main-content, .main-content > .full-width {
-    --min-padding: 2rem;
-    --max-width: 900px;
+    --min-padding: 1rem;
+    --max-width: var(--page-width);
 
     display: grid;
-    grid-template-columns: 
-        minmax(var(--min-padding), 1fr) 
+    grid-template-columns:
+        minmax(var(--min-padding), 1fr)
         minmax(auto, var(--max-width))
         minmax(var(--min-padding), 1fr);
 }
@@ -28,5 +28,19 @@
 }
 
 .container {
-    padding: 1em;
+    width: 100%;
+    max-width: calc(var(--page-width) + 2rem);
+    margin-inline: auto;
+    padding: var(--space-5) var(--space-4) var(--space-6);
+}
+
+/* BugIndex nests a .main-content grid inside .container; the container already pads it */
+.container .main-content {
+    --min-padding: 0px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding-block: var(--space-4) var(--space-5);
+    }
 }

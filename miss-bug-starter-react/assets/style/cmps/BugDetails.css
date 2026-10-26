@@ -1,12 +1,69 @@
-.bug-details h5 {
-    margin: 1em 0;
-    font-size: 1.1em;
+.bug-details {
+    max-width: 720px;
+    margin-inline: auto;
+    padding: var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background-color: var(--bg-surface);
+    box-shadow: var(--shadow-sm);
 }
 
-.bug-details h5 span{
-    color: red;
+.bug-details > h3 {
+    margin-block-end: var(--space-4);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.bug-details h4 {
+    font-size: 1.6rem;
+    overflow-wrap: anywhere;
+}
+
+.bug-details h5 {
+    margin: var(--space-3) 0;
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.bug-details h5 span {
+    margin-inline-start: .25em;
+}
+
+.bug-details p {
+    margin-block-end: var(--space-3);
+    overflow-wrap: anywhere;
+}
+
+.bug-details p span {
+    color: var(--text-muted);
+}
+
+.bug-details .loading {
+    color: var(--text-muted);
+}
+
+.bug-details .error {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid #f5c2c2;
+    border-radius: var(--radius-sm);
+    background-color: var(--sev-5-bg);
+    color: var(--danger-hover);
 }
 
 .bug-details hr {
-    margin: 1em 0;
+    margin: var(--space-4) 0;
+    border: 0;
+    border-block-start: 1px solid var(--border);
+}
+
+.bug-details > a {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.bug-details > a:hover {
+    text-decoration: underline;
 }

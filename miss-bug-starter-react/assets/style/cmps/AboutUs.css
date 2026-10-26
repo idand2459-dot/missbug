@@ -1,8 +1,24 @@
+.about-us {
+    max-width: 720px;
+    margin-inline: auto;
+    padding: var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background-color: var(--bg-surface);
+    box-shadow: var(--shadow-sm);
+}
+
 .about-us h2 {
-    margin-block: 50px 1em;
+    margin-block: 0 1em;
+}
+
+.about-us p {
+    color: var(--text-muted);
 }
 
 .about-us img {
-    max-width: 50vw;
-    margin: auto;
+    display: block;
+    width: min(100%, 280px);
+    height: auto;
+    margin: var(--space-5) auto 0;
 }

@@ -29,7 +29,7 @@ export function BugDetails() {
             bug && 
             <div>
                 <h4>{bug.title}</h4>
-                <h5>Severity: <span>{bug.severity}</span></h5>
+                <h5>Severity: <span data-severity={bug.severity}>{bug.severity}</span></h5>
                 <p>{bug.description}</p>
                 <p>Created At: <span>{new Date(bug.createdAt).toLocaleString()}</span></p>
             </div>

@@ -59,17 +59,18 @@ export function UserIndex({ loggedinUser }) {
         <section className="user-index">
             <h1>User Management</h1>
 
-            {error && <p>{error}</p>}
+            {error && <p className="user-error">{error}</p>}
 
             <ul>
                 {users.map(user => (
                     <li key={user._id}>
-                        <span>
+                        <span className="user-info">
                             {user.fullname} ({user.username})
                             {user.isAdmin && ' - Admin'}
                         </span>
 
                         <button
+                            className="btn-danger"
                             onClick={() => onRemoveUser(user._id)}
                             disabled={user._id === loggedinUser._id}
                         >
