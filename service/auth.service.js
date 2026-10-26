@@ -1,6 +1,10 @@
 import Cryptr from 'cryptr'
 
-const crypter = new Cryptr(process.env.SECRET1 || 'secret123')
+if (!process.env.SECRET1) {
+    throw new Error('SECRET1 environment variable is required')
+}
+
+const crypter = new Cryptr(process.env.SECRET1)
 
 export const authService = {
     getLoginToken,

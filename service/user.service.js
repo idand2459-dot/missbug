@@ -2,6 +2,14 @@ import fs from 'fs'
 import {makeId} from './util.service.js'
 
 
+const USER_FILE = 'user.json'
+const SEED_FILE = 'user.seed.json'
+
+// First run only: create user.json from the demo seed. Never overwrites existing data.
+if (!fs.existsSync(USER_FILE) && fs.existsSync(SEED_FILE)) {
+    fs.copyFileSync(SEED_FILE, USER_FILE, fs.constants.COPYFILE_EXCL)
+}
+
 export const userService = {
     query,
     getById,
