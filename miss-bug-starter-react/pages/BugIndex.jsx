@@ -6,11 +6,21 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { BugFilter } from '../cmps/BugFilter.jsx'
 import { BugList } from '../cmps/BugList.jsx'
 
-export function BugIndex() {
+export function BugIndex({ loggedinUser }) {
     const [bugs, setBugs] = useState(null)
     const [filterBy, setFilterBy] = useState(bugService.getDefaultFilter())
 
     useEffect(loadBugs, [filterBy])
+
+    function onNextPage() {
+
+        setFilterBy(prevFilter => ({ ...prevFilter, pageIdx: prevFilter.pageIdx + 1 }))
+    }
+
+    function onPrevPage() {
+        if (filterBy.pageIdx === 0) return;
+        setFilterBy(prevFilter => ({ ...prevFilter, pageIdx: prevFilter.pageIdx - 1 }))
+    }   
 
     function loadBugs() {
         bugService.query(filterBy)
@@ -33,11 +43,15 @@ export function BugIndex() {
             title: prompt('Bug title?', 'Bug ' + Date.now()),
             severity: +prompt('Bug severity?', 3),
             description: prompt('Bug description?', 'Description of the bug'),
+            labels: (prompt('Bug labels?', '') || '')
+            .split(',')
+            .map(label => label.trim())
+            .filter(label => label !== '')
         }
 
         bugService.save(bug)
             .then(savedBug => {
-                setBugs([...bugs, savedBug])
+                loadBugs()
                 showSuccessMsg('Bug added')
             })
             .catch(err => showErrorMsg(`Cannot add bug`, err))
@@ -67,12 +81,18 @@ export function BugIndex() {
         <BugFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
         <header>
             <h3>Bug List</h3>
-            <button onClick={onAddBug}>Add Bug</button>
+            {loggedinUser &&( <button onClick={onAddBug}>Add Bug</button> )}
+            
         </header>
 
         <BugList
             bugs={bugs}
             onRemoveBug={onRemoveBug}
-            onEditBug={onEditBug} />
+            onEditBug={onEditBug}
+            onNextPage={onNextPage}
+            onPrevPage={onPrevPage} 
+            pageIdx={filterBy.pageIdx}
+            loggedinUser={loggedinUser}
+        />
     </section>
 }

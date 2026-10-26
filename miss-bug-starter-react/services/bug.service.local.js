@@ -9,19 +9,8 @@ export const bugService = {
 }
 
 async function query(filterBy={}) {
-   const response = await axios.get(BASE_URL)
-   let bugs = response.data
-
-        if (filterBy.txt) {
-            const regExp = new RegExp(filterBy.txt, 'i')
-            bugs = bugs.filter(bug => regExp.test(bug.title))
-        }
-
-        if (filterBy.minSeverity) {
-            bugs = bugs.filter(bug => bug.severity >= filterBy.minSeverity)
-        }
-
-        return bugs
+   const response = await axios.get(BASE_URL, { params: filterBy })
+   return response.data
 }
 
 async function getById(bugId) {
@@ -46,5 +35,12 @@ async function save(bug) {
 
 
 function getDefaultFilter() {
-    return { txt: '', minSeverity: 0 }
+    return { 
+        txt: '',
+     minSeverity: 0,
+        labels: [],
+        sortBy: 'createdAt',
+        sortDir: 1,
+        pageIdx: 0
+     }
 }

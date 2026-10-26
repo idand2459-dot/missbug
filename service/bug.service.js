@@ -7,11 +7,38 @@ export const bugService = {
     remove,
 }
 
-async function query() {
+async function query({ txt, minSeverity, labels,sortBy,sortDir=1,pageIdx } = {}) {
     try {
         const data = await fs.promises.readFile('bugs.json', 'utf-8')
-        const bugs = JSON.parse(data);
-        return bugs;
+        let bugs = JSON.parse(data);
+       
+        
+        if (sortBy) {
+            bugs = bugs.sort((a, b) => {
+                if (sortBy === 'title') return a.title.localeCompare(b.title)*sortDir
+                if (sortBy === 'severity') return (a.severity - b.severity)*sortDir
+                if (sortBy === 'createdAt') return (a.createdAt - b.createdAt)*sortDir
+                return 0
+            })
+        }
+
+        if (labels && labels.length) {
+            bugs = bugs.filter(bug =>labels.some(label => (bug.labels || []).includes(label)))
+        }
+
+        if (txt) {
+            bugs = bugs.filter(bug => bug.title.toLowerCase().includes(txt.toLowerCase()))
+        }
+
+        if (minSeverity) {
+            bugs = bugs.filter(bug => bug.severity >= Number(minSeverity))
+        }
+
+        if (pageIdx !== undefined) {
+            bugs = bugs.slice(Number(pageIdx) * 5, (Number(pageIdx) + 1) * 5);
+        }
+
+        return bugs
     } catch (err) {
         console.error('Failed to read bugs.json', err);
         throw err;  
@@ -41,6 +68,10 @@ async function save(bug) {
         } else {
             bug._id = makeId()
             bug.createdAt = Date.now()
+            bug.labels = (bug.labels || [])
+                .map(label => label.trim())
+                .filter(label => label !== '')
+
             bugs.push(bug)
         }
 
