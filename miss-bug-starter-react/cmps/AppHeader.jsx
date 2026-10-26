@@ -15,7 +15,7 @@ export function AppHeader({ loggedinUser, onLogout }) {
                     <span className="user-nav">
                         Welcome, {loggedinUser.username}
 
-                        <NavLink to="/user">
+                        <NavLink to="/user" end>
                             My Profile
                         </NavLink>
 

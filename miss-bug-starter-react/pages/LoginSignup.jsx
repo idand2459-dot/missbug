@@ -42,30 +42,39 @@ export function LoginSignup({ onLogin }) {
             <h1>Login / Signup</h1>
 
             <div className="auth-card">
-                <input
-                    type="text"
-                    placeholder="Username"
-                    aria-label="Username"
-                    value={username}
-                    onChange={e => setUsername(e.target.value)}
-                />
+                <div className="field">
+                    <label htmlFor="username">Username</label>
+                    <input
+                        id="username"
+                        type="text"
+                        placeholder="Username"
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
+                    />
+                </div>
 
-                <input
-                    type="password"
-                    placeholder="Password"
-                    aria-label="Password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                />
+                <div className="field">
+                    <label htmlFor="password">Password</label>
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                    />
+                </div>
 
                 {isSignup && (
-                    <input
-                        type="text"
-                        placeholder="Full Name"
-                        aria-label="Full Name"
-                        value={fullName}
-                        onChange={e => setFullName(e.target.value)}
-                    />
+                    <div className="field">
+                        <label htmlFor="fullname">Full Name</label>
+                        <input
+                            id="fullname"
+                            type="text"
+                            placeholder="Full Name"
+                            value={fullName}
+                            onChange={e => setFullName(e.target.value)}
+                        />
+                    </div>
                 )}
 
                 <button className="btn-primary" onClick={isSignup ? handleSignup : handleLogin}>
