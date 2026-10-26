@@ -1,0 +1,118 @@
+[
+  {
+    "_id": "b1001",
+    "title": "Login button unresponsive",
+    "description": "The login button does nothing after entering valid credentials.",
+    "severity": 4,
+    "labels": [
+      "login",
+      "ui"
+    ],
+    "createdAt": 1736154000000,
+    "creator": {
+      "_id": "u101",
+      "fullname": "Maya Demo"
+    }
+  },
+  {
+    "_id": "b1002",
+    "title": "Payment fails on checkout",
+    "description": "Card payments return an error on the final step.",
+    "severity": 5,
+    "labels": [
+      "payment",
+      "critical"
+    ],
+    "createdAt": 1736240400000,
+    "creator": {
+      "_id": "u102",
+      "fullname": "Tom Demo"
+    }
+  },
+  {
+    "_id": "b1003",
+    "title": "Typo on the About page",
+    "description": "The About page has a spelling mistake in the second paragraph.",
+    "severity": 1,
+    "labels": [
+      "content"
+    ],
+    "createdAt": 1736326800000,
+    "creator": {
+      "_id": "u101",
+      "fullname": "Maya Demo"
+    }
+  },
+  {
+    "_id": "b1004",
+    "title": "Cart total is wrong",
+    "description": "Cart total does not update after removing an item.",
+    "severity": 3,
+    "labels": [
+      "cart"
+    ],
+    "createdAt": 1736413200000,
+    "creator": {
+      "_id": "u102",
+      "fullname": "Tom Demo"
+    }
+  },
+  {
+    "_id": "b1005",
+    "title": "Slow bug list loading",
+    "description": "The bug list takes several seconds to load.",
+    "severity": 2,
+    "labels": [
+      "performance"
+    ],
+    "createdAt": 1736499600000,
+    "creator": {
+      "_id": "u100",
+      "fullname": "Demo Admin"
+    }
+  },
+  {
+    "_id": "b1006",
+    "title": "Filter ignores labels",
+    "description": "Filtering by label returns all bugs.",
+    "severity": 3,
+    "labels": [
+      "filter",
+      "ui"
+    ],
+    "createdAt": 1736586000000,
+    "creator": {
+      "_id": "u101",
+      "fullname": "Maya Demo"
+    }
+  },
+  {
+    "_id": "b1007",
+    "title": "Profile page shows wrong stats",
+    "description": "Average severity is miscalculated for users with one bug.",
+    "severity": 2,
+    "labels": [
+      "profile"
+    ],
+    "createdAt": 1736672400000,
+    "creator": {
+      "_id": "u102",
+      "fullname": "Tom Demo"
+    }
+  },
+  {
+    "_id": "b1008",
+    "title": "Logout leaves menu visible",
+    "description": "After logout the Manage Users link stays visible until refresh.",
+    "severity": 4,
+    "labels": [
+      "auth",
+      "ui"
+    ],
+    "createdAt": 1736758800000,
+    "creator": {
+      "_id": "u100",
+      "fullname": "Demo Admin"
+    }
+  }
+]

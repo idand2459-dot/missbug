@@ -1,5 +1,13 @@
 import fs from 'fs';
 import { makeId } from './util.service.js';
+const BUG_FILE = 'bugs.json'
+const SEED_FILE = 'bugs.seed.json'
+
+// First run only: create bugs.json from the demo seed. Never overwrites existing data.
+if (!fs.existsSync(BUG_FILE) && fs.existsSync(SEED_FILE)) {
+    fs.copyFileSync(SEED_FILE, BUG_FILE, fs.constants.COPYFILE_EXCL)
+}
+
 export const bugService = {
     query,
     getById,
